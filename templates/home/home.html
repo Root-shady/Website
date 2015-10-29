@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+
+<!-- The page title -->
+{% block title %}
+    CodeFun
+{% endblock %}
+
+<!-- Adding customized css stylesheet to the base html -->
+{% block custome_css %}
+    <link href="{% static 'home/css/carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'common/css/jquery.fullPage.css' %}" rel="stylesheet">
+
+{% endblock%}
+
+{% block custome_js %}
+    <script type='text/javascript' src="{% static 'common/js/jquery.fullPage.min.js' %}"> </script>
+    <script type='text/javascript' src="{% static 'common/js/startfullpage.js' %}"> </script> 
+{% endblock%}
+
+{% block content %}
+
+    <div id="fullpage">    
+        <div class="section">
+        {% include 'home/navbar.html' %}
+        {% include 'home/carousel.html' %}
+        </div>
+        <div class=section>
+        {% include 'home/marketing.html' %}
+        </div>
+        <!-- Since the section had been divided into different pages, so the section cannot be here -->
+        {% include 'home/feature.html' %}
+    </div>
+{% endblock %}
