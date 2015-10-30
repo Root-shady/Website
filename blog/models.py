@@ -4,6 +4,7 @@ from django.db import models
 class Tag(models.Model):
     tag_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30, unique=True)
+# Record the tag's frequence, add one when a post is related to that tag
     frequence = models.PositiveIntegerField(default=0)
     def __str__(self):
         return self.name
@@ -40,7 +41,10 @@ class Post(models.Model):
 class Category(models.Model):
     category_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50, unique=True)
+# Counting how many post are belong to the category 
+    related_post = models.PositiveIntegerField(default=0)
     create_date = models.DateTimeField(auto_now_add=True)
+
     
     def __str__(self):
         return self.name

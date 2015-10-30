@@ -50,12 +50,14 @@
   <!--// Tags //-->
   <div class="sp-widget sp-tags">
       <h4 class="sp-widget-title"><i class="fa fa-tags fa-2x"></i>&nbsp标签</h4>
-
     <div class="sp-tag-cloud">
-      <a href="#">Travel</a>
-      <a href="#">Photography</a>
-      <a href="#">Landscapes</a>
-      <a href="#">Nature</a>
+        {% if tags %}
+            {% for tag in tags %}
+            <a href="#">{{ tag.name }}</a>
+            {% endfor %}
+        {% else %}
+        <a href="#">懒人一个</a> <!-- The 404 Page -->>
+        {% endif %}
     </div>
   </div> <!-- //End Tags -->
 
