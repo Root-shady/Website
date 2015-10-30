@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+
+{% block meta_icon %}
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="{% static 'common/images/favicon.ico' %}">
+{% endblock %}
+
+{% block title %}
+    Shady's Blog
+{% endblock %}
+
+{% block custome_css %}
+  <!--// Font Awesome //-->
+  <link href="{% static 'common/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"-->
+
+  <!--// Font Family //-->
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+
+  <!--// Main Style //-->
+  <link href="{% static 'blog/css/style.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+  <!-- Google Analytics 
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-53449424-3', 'auto');
+    ga('send', 'pageview');
+</script>  -->
+{% block content %}
+</head>
+<body>
+    <!-- The aside bar content -->
+    {% include 'blog/aside.html' %}
+
+    <!--//Wrapper//-->
+    <div class="sp-wrapper">
+        <button class="sp-navbar-toggle sp-show-btn"><i class="sp-icon fa fa-align-justify"></i></button>
+        <div class="sp-canvas">
+            <div class="sp-content-wrap">
+
+                <!-- List out recent post(5 articles) -->
+                {% include 'blog/postlist.html' %}
+
+                <!--//Pagination//-->
+                <div class="sp-pagination">
+                    <div class="sp-container">
+                        <div class="sp-pagination-inner sp-clearfix">
+                            <a class="sp-prev" href="#">Older Entries</a>
+                            <a class="sp-next" href="#">Newer Entries</a>
+                        </div>
+                    </div>
+                </div> <!--//End Pagination-->
+
+                {% include 'blog/footer.html' %}
+            </div>
+        </div>
+    </div> <!--//End Wrapper-->
+
+{% endblock %}
+
+{% block custome_js %}
+<!--//Javascript//-->
+  <script src="{% static 'blog/js/jquery.nicescroll.min.js' %}"></script>
+  <!--//Custom//-->
+  <script src="{% static 'blog/js/main.js' %}"></script>
+{% endblock %}

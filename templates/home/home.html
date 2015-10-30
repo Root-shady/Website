@@ -2,16 +2,24 @@
 {% extends 'home/base.html' %}
 {% load staticfiles %}
 
+{% block meta_icon %}
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'common/images/favicon.ico' %}">
+{% endblock %}
 <!-- The page title -->
+
 {% block title %}
     CodeFun
 {% endblock %}
 
 <!-- Adding customized css stylesheet to the base html -->
 {% block custome_css %}
+    <!-- Custom styles for this template -->
+    <link href="{% static 'common/css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'common/css/sticky-footer.css' %}" rel="stylesheet">
     <link href="{% static 'home/css/carousel.css' %}" rel="stylesheet">
     <link href="{% static 'common/css/jquery.fullPage.css' %}" rel="stylesheet">
-
 {% endblock%}
 
 {% block custome_js %}

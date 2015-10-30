@@ -1,0 +1,67 @@
+{% load staticfiles %}
+<!--//Off Canvas//-->
+<aside class="sp-off-canvas">
+<div class="sp-off-canvas-inner">
+  <!--//Header//-->
+  <header class="sp-header">
+      <button class="sp-close-btn"><i class="sp-icon fa fa-power-off fa-3x"></i></button>
+    <img src="{% static 'blog/images/vetta.jpg' %}" alt="">
+    <div class="sp-text">
+      <h2 class="sp-brand"><a href="index.html">Vendetta</a></h2>
+    <!-- Appear above the logo -->
+    <!--p class="sp-tagline">Illusion of Coincidence</p--> 
+    </div>
+      <p class="sp-tagline">Illusion of Coincidence</p>
+  </header> <!--//End Header-->
+
+  <!--//Search//-->
+  <div class="sp-widget">
+    <form class="sp-search">
+      <input type="search" placeholder="Search">
+      <button class="sp-search-btn" type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div> <!--//End Search-->
+
+  <!--//Menu//-->
+  <div class="sp-widget sp-menu">
+        <div class="list-group">
+            <ul class="sp-nav">
+                <li><a class="list-group-item" href="index.html"><i class="fa fa-home fa-fw"></i>&nbsp;主页</a></li>
+                <li><a class="list-group-item" href="single.html"><i class="fa fa-rss fa-fw"></i>&nbsp;博客</a></li>
+                <li><a class="list-group-item" href="author.html"><i class="fa fa-paper-plane-o fa-fw"></i>&nbsp;时间线</a></li>
+                <li><a class="list-group-item" href="about.html"><i class="fa fa-envelope fa-fw"></i>&nbsp;关于 & 联系</a></li>
+                <li><a class="list-group-item" href="contact.html"><i class="fa fa-link fa-fw"></i>&nbsp;友链</a></li>
+            </ul>
+        </div>
+  </div> <!--//End Menu-->
+  <!--//Categories//-->
+  <div class="sp-widget sp-categories">
+      <h3 class="sp-widget-title"><i class="fa fa-bookmark-o fa-2x"></i>&nbsp分类</h3>
+
+    <ul class="sp-nav sp-category">
+      <li><a href="#">Adventure <span>(12)</span></a></li>
+      <li><a href="#">Art <span>(17)</span></a></li>
+      <li><a href="#">Nature <span>(45)</span></a></li>
+      <li><a href="#">Photo <span>(30)</span></a></li>
+      <li><a href="#">Travel <span>(47)</span></a></li>
+    </ul>
+  </div> <!--//End Categories-->
+
+  <!--// Tags //-->
+  <div class="sp-widget sp-tags">
+      <h4 class="sp-widget-title"><i class="fa fa-tags fa-2x"></i>&nbsp标签</h4>
+
+    <div class="sp-tag-cloud">
+      <a href="#">Travel</a>
+      <a href="#">Photography</a>
+      <a href="#">Landscapes</a>
+      <a href="#">Nature</a>
+    </div>
+  </div> <!-- //End Tags -->
+
+  <div class="sp-misc">
+    <a class="sp-top" href="#top"><i class="fa fa-rocket fa-2x"></i> Back to Top</a>
+  </div>
+
+</div>
+</aside> <!--//End Off Canvas-->
