@@ -13,8 +13,10 @@
 
     <title>{% block title %}{% endblock %}</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"-->
     <link href="{% static 'common/css/bootstrap.min.css' %}" rel="stylesheet">
+
     {% block custome_css %}
     {% endblock %}
   </head>
@@ -25,8 +27,15 @@
     {% block content %}
     {% endblock %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{% static 'common/js/bootstrap.min.js' %}"></script>
+    <!-- Using the CND and the local source file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+    <script>window.jQuery || document.write('<script src="{% static "common/js/jquery.min.js" %}">\x3C/script>')</script>
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>>
+    <script> $.fn.modal || document.write('<script src="{% static "common/css/bootstrap.min.js" %}">\x3C/script>')</script>
+
+
     {% block custome_js %}
     {% endblock %}
   </body>

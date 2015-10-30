@@ -32,6 +32,12 @@ body {
 .navbar-wrapper .navbar .container {
   width: auto;
 }
+.navbar-wrapper .navbar .container .nav {
+    font-size: 18px;
+}
+.navbar-wrapper .navbar .container .navbar-header .navbar-brand {
+    font-size: 32px;
+}
 
 @media (min-width: 768px) {
   /* Navbar positioning foo */

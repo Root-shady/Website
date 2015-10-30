@@ -1,0 +1,4 @@
+The about.html --> The about page layout.
+The base.html  --> The basic template of the page.(intial css and js )
+The navbar.html --> The navbar style
+The home.html --> This is the index.html(Home page)
