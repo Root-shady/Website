@@ -1317,6 +1317,7 @@ table {
   padding: 40px 0;
 }
 .sp-pagination .sp-prev,
+.sp-pagination .sp-category
 .sp-pagination .sp-next {
   position: relative;
   display: inline-block;
@@ -1326,13 +1327,16 @@ table {
   font-size: .95em;
 }
 .sp-pagination .sp-prev:hover,
+.sp-pagination .sp-category:hover,
 .sp-pagination .sp-next:hover {
-  color: #e8554e;
+  color: #F07F1D;
   text-decoration: underline;
 }
 .sp-pagination .sp-prev::before,
+.sp-pagination .sp-category::before,
 .sp-pagination .sp-next::before,
 .sp-pagination .sp-prev::after,
+.sp-pagination .sp-category::after,
 .sp-pagination .sp-next::after {
   position: absolute;
   top: 50%;
@@ -1343,8 +1347,14 @@ table {
   -o-transform: translateY(-50%);
 }
 .sp-pagination .sp-prev {
+  color: #e8554e;
   float: left;
   padding-left: 20px;
+}
+.sp-pagination .sp-category {
+  /*position: relative;*/
+  position: absolute;
+  left: 50%;
 }
 /*
 .sp-pagination .sp-prev::before {

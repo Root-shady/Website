@@ -30,7 +30,7 @@ def category(request, category_name_slug):
     context_dict = common()
     try:
         # If we find a category name slug with the given name?
-        # Otherwise the get() method raise a DoseNotExist exception
+        # Otherwise the get() method raise a DoesNotExist exception
         category = Category.objects.get(slug=category_name_slug)
         context_dict['category_name'] = category.name
         # Retrieve all the associated pages
@@ -72,6 +72,36 @@ def category(request, category_name_slug):
     context_dict['posts'] = posts
     return render(request, 'blog/category.html', context_dict)
 
+def single_post(request, category_name_slug, post_title):
+    context_dict = common()
+    try:
+        post = Post.objects.get(slug=post_title)
+        category = Category.objects.get(slug=category_name_slug)
+        post_list = Post.objects.filter(category=category).order_by('post_id')
+    except (Post.DoesNotExist, Category.DoesNotExist):
+        pass#404 here
+# To check if there are next page or previus page. Not related to the category
+# Turn the queryset into a list, in order to use the index method.
+    post_list = list(post_list)
+    condition = {}
+    prev, next = True, True
+    if post.post_id == post_list[0].post_id:
+        prev = False
+    if post.post_id == post_list[len(post_list)-1].post_id:
+        next = False
+    if prev:
+        condition['has_pre'] = prev
+        condition['pre_slug'] = post_list[post_list.index(post)-1].slug
+    if next:
+        condition['has_next'] = next
+        condition['next_slug'] = post_list[post_list.index(post)+1].slug
+
+    context_dict['category'] = category_name_slug
+    context_dict['condition'] = condition
+    context_dict['post'] = post
+    return render(request, 'blog/post.html', context_dict)
+
+    
 def about(request):
     blog = '<a href="/blog">Blog Home Page</a>'
     return HttpResponse("This is the about section" + blog)

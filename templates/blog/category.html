@@ -1,107 +1,60 @@
-<!DOCTYPE html>
-{% extends 'home/base.html' %}
+{% extends 'blog/blog_base.html' %}       
 {% load staticfiles %}
-
-{% block meta_icon %}
-  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
-  <link rel="icon" type="image/x-icon" href="{% static 'common/images/favicon.ico' %}">
-{% endblock %}
-
-{% block title %}
-    {% if category %}
-        {{ category_name }}
-    {% else %}
-        'NotFound'
-    {% endif %}
-{% endblock %}
-
-{% block custome_css %}
-  <!--// Font Awesome //-->
-  <link href="{% static 'common/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"-->
-  <!--// Font Family //-->
-  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
-
-  <!--// Main Style //-->
-  <link href="{% static 'blog/css/style.css' %}" rel="stylesheet" type="text/css">
-{% endblock %}
-
-{% block custome_js %}
-<!--//Javascript//-->
-  <script src="{% static 'blog/js/jquery.nicescroll.min.js' %}"></script>
-  <!--//Custom//-->
-  <script src="{% static 'blog/js/main.js' %}"></script>
-{% endblock %}
-
-
-{% block content %}
-</head>
-<body>
-    <!-- The aside bar content -->
-    {% include 'blog/aside.html' %}
-        <button class="sp-navbar-toggle sp-show-btn"><i class="sp-icon fa fa-align-justify"></i></button>
-        <div class="sp-canvas">
-        <div class="sp-content-wrap">
-
-        <!-- Main Content -->
-        <div class="container"><!-- Override the css of the container in bootstrap -->
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <h1 class="category-name"><i class="fa-icon fa fa-cubes fa-2x"></i>{{ category_name }}</h1>
-                    <!-- 打印对应的文章信息 -->
-                    {% if category %}
-                        {% if posts %}
-                            {% for bundle in posts %}
-                                <div class="row">
-                            <div class="col-xs-4 col-sm-4">
-                                <img src="{% static 'common/images/favicon.ico' %}" class="infor img-circle" alt="Loading..." style="width: 100px;  height: 100px;" />
-                                <span class="infor"><i class="fa fa-calendar-check-o fa-2x"></i> 发表时间：2014-12-02 </span>
-                            </div>
-                            <div class ="col-xs-8 col-sm-6">
-                                <a class="post-title" href="/blog_detail/?id=11" data-toggle="tooltip" data-placement="top" title="点击查看该文章～" >    {{ bundle.post.title }} </a>
-                                <div class="blog-infor pull right">
-                                    <span><i class="fa fa-tags"></i> 标签: 
-                                        {% for tag in bundle.tags %}
-                                            <span>{{ tag.name }} |  </span>
-                                        {% endfor %}
-                                    </span>
-                                    <span><i class="fa fa-folder"></i>  分类: {{ category }}</span>
-                                </div>
-                            </div>
-                            </div>
-                            <p align="right">
-                                <span><i class="fa fa-eye"></i> 阅读<span class="badge">{{ bundle.post.views }} </span>
-                                <span><i class="fa fa-thumbs-up"></i> 赞<span class="badge">{{ bundle.post.likes }} </span>
-                                <span><i class="fa fa-comments"></i> 评论<span class="badge"> 0 </span> <!-- the comment function is not implemented yet -->
-                          </p>
-                          <hr/>
-                            {% endfor %}
+{% block update %}
+<!-- Main Content -->
+<div class="container"><!-- Override the css of the container in bootstrap -->
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <h1 class="category-name"><i class="fa-icon fa fa-cubes fa-2x"></i>{{ category_name }}</h1>
+            <!-- 打印对应的文章信息 -->
+            {% if category %}
+                {% if posts %}
+                    {% for bundle in posts %}
+                        <div class="row">
+                    <div class="col-xs-4 col-sm-4">
+                        <img src="{% static 'common/images/favicon.ico' %}" class="infor img-circle" alt="Loading..." style="width: 100px;  height: 100px;" />
+                        <span class="infor"><i class="fa fa-calendar-check-o fa-2x"></i> 发表时间：2014-12-02 </span>
+                    </div>
+                    <div class ="col-xs-8 col-sm-6">
+                        <a class="post-title" href="../blog/category/{{ category }}/{{ bundle.post.slug }}/" data-toggle="tooltip" data-placement="top" title="点击查看该文章～" >    {{ bundle.post.title }} </a>
+                        <div class="blog-infor pull right">
+                            <span><i class="fa fa-tags"></i> 标签: 
+                                {% for tag in bundle.tags %}
+                                    <span>{{ tag.name }} |  </span>
+                                {% endfor %}
+                            </span>
+                            <span><i class="fa fa-folder"></i>  分类: {{ category }}</span>
+                        </div>
+                    </div>
+                    </div>
+                    <p align="right">
+                        <span><i class="fa fa-eye"></i> 阅读<span class="badge">{{ bundle.post.views }} </span>
+                        <span><i class="fa fa-thumbs-up"></i> 赞<span class="badge">{{ bundle.post.likes }} </span>
+                        <span><i class="fa fa-comments"></i> 评论<span class="badge"> 0 </span> <!-- the comment function is not implemented yet -->
+                  </p>
+                  <hr/>
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+    <!-- -Doing some significant change-->
+           
+            <!-- 实现分页显示 -->
+            <div class="pagination">
+                <span class="step-links">
+                        {% if posts.has_previous %}
+                            <a class="sp-prev" href="?page={{ posts.previous_page_number }}"><i class="fa fa-caret-square-o-left"></i> 上一页</a>
                         {% endif %}
-                    {% endif %}
-            <!-- -Doing some significant change-->
-                   
-                    <!-- 实现分页显示 -->
-                    <div class="pagination">
-                        <span class="step-links">
-                                {% if posts.has_previous %}
-                                    <a class="sp-prev" href="?page={{ posts.previous_page_number }}"><i class="fa fa-caret-square-o-left"></i> 上一页</a>
-                                {% endif %}
 
-                                <span class="current">
-                                    Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
-                                </span>
-
-                                {% if posts.has_next %}
-                                    <a class="sp-next" href="?page={{ posts.next_page_number }}">下一页 <i class="fa fa-caret-square-o-right"></i></a>
-                                {% endif %}
+                        <span class="current">
+                            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
                         </span>
-                    </div><!-- End of the pagination -->
-                </div> 
-            </div> <!-- End of the container -->
-        </div>
 
-        {% include 'blog/footer.html' %}
-        </div>
-    </div>
+                        {% if posts.has_next %}
+                            <a class="sp-next" href="?page={{ posts.next_page_number }}">下一页 <i class="fa fa-caret-square-o-right"></i></a>
+                        {% endif %}
+                </span>
+            </div><!-- End of the pagination -->
+        </div> 
+    </div> <!-- End of the container -->
+</div>
 {% endblock %}

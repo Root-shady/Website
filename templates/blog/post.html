@@ -1,5 +1,7 @@
+{% extends 'blog/blog_base.html' %}
 {% load staticfiles %}
 
+{% block update %}
 <!--//Post//-->
 <article class="sp-post">
     <div class="row" >
@@ -15,23 +17,21 @@
         <div class="sp-post-content">
             <div class="sp-container">
                 <div class="sp-post-desc">
-                    
                     <header class="sp-post-header">
                         <div class="sp-meta">
-                            <span><a href="#">{{ category }}</a></span> 
-                            <p> {{ post.abstract }}
-                            <span><a href="#">{{ post.publish_date }}</a></span>
+                            <span><a href="/blog/category/{{ category }}">{{ category }}</a></span> 
+                            <span>{{ post.publish_date }}</span>
                         </div>
-                        <h2 class="sp-post-title"><a href="single.html">Mountain Winter Landscape in Austria</a></h2>
+                        <h2 class="sp-post-title">{{ post.title }}</h2>
                             <div class="sp-post-info sp-clearfix">
                                 <div class="sp-post-meta">
                                     <img class="sp-avatar" src="{% static 'blog/images/forg.jpg' %}" alt="">
-                                    <p class="sp-author-name"><i>by:</i> <a href="author.html">Katy Wittner</a></p>
-                                    <p class="sp-comment-count"><a href="#">27 Comments</a></p>
+                                    <p class="sp-author-name"><i class="fa fa-pencil"></i> by:<a href="/blog/about.html">{{ post.author }}</a></p>
+                                    <p class="sp-comment-count"> <i class="fa fa-tripadvisor"></i> views: {{ post.views }} </p>
                                     <hr class="sp-separator">
                                 </div>
                                 <div class="sp-share-this">
-                                    <p class="sp-meta-title">Share on:</p>
+                                    <p class="sp-meta-title"> FollowMe:</p>
                                     <p class="sp-share-list">
                                     <a class="facebook" href="#" data-toggle="tooltip" data-replacement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
                                     <a class="weixin" href="#" data-toggle="tooltip" data-replacement="top" title="Weixin"><i class="fa fa-weixin"></i></a>
@@ -44,8 +44,28 @@
 
                 <div class="sp-entry-content">
                     <!-- The whole content -->
+                    {{ post.content }}
                 </div>
             </div>
         </div>
     </div>
+
 </article> <!--//End Post-->
+            <!-- pagination here -->
+            <div class="sp-pagination">
+                <div class="sp-container">
+                    <div class="sp-pagination-inner sp-clearfix">
+                        {% if condition.has_pre %}
+                            <a class="sp-prev" href="/blog/category/{{ category }}/{{ condition.pre_slug }}/"><i class="fa fa-caret-square-o-left"></i>上一页</a>
+                        {% endif %}
+                        {% if category %}
+                            <a class="sp-category" href="/blog/category/{{ category }}/"><i class="fa fa-tree"></i>分类目录</a>
+                        {% endif %}
+                        {% if condition.has_next %}
+                            <a class="sp-next" href="/blog/category/{{ category }}/{{ condition.next_slug }}/">下一页<i class="fa fa-caret-square-o-right"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div> <!-- end of pagination -->
+
+{% endblock %}
