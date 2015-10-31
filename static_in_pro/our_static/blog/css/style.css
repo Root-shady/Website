@@ -473,6 +473,37 @@ table {
   left: 0;
   opacity: 1;
 }
+.sp-canvas .sp-content-wrap .container {
+    min-height: 60vh !important;
+}
+.sp-canvas .sp-content-wrap .container .category-name{
+    text-transform: lowercase;
+    color: #1DACDB;
+ }
+.sp-canvas .sp-content-wrap .container .infor {
+    display: block;
+    padding: 10px;
+    font-size: .8em;
+}
+.sp-canvas .sp-content-wrap .container a:hover {
+    /* Post title */
+    color: #ED1515;
+}
+.sp-canvas .sp-content-wrap .container  .post-title {
+    color: #333333;
+    text-decoration:none;
+    font-size: 1.5em;
+}
+.sp-canvas .sp-content-wrap .container  .blog-infor {
+    margin-top: 40px;
+    color: #08799E;
+    text-align: right;
+}
+.sp-canvas .sp-content-wrap .container .img-circle {
+    border-radius: 50%;
+    border: 5px #26A0C9 ;
+    border-style: inset;
+}
 .sp-off-canvas {
   position: fixed;
   top: 0;

@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 class Tag(models.Model):
@@ -6,8 +7,16 @@ class Tag(models.Model):
     name = models.CharField(max_length=30, unique=True)
 # Record the tag's frequence, add one when a post is related to that tag
     frequence = models.PositiveIntegerField(default=0)
+    
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Tag, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.name
+
 
 class Post(models.Model):
     # A primary key field will automatically be added to your model, if you don't specify.
@@ -31,8 +40,11 @@ class Post(models.Model):
     category= models.ForeignKey('Category')
     tags = models.ManyToManyField(Tag)
 
-    class Meta:
-        ordering = ('category', 'publish_date')
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -44,6 +56,11 @@ class Category(models.Model):
 # Counting how many post are belong to the category 
     related_post = models.PositiveIntegerField(default=0)
     create_date = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Category, self).save(*args, **kwargs)
 
     
     def __str__(self):

@@ -39,11 +39,13 @@
       <h3 class="sp-widget-title"><i class="fa fa-bookmark-o fa-2x"></i>&nbsp分类</h3>
 
     <ul class="sp-nav sp-category">
-      <li><a href="#">Adventure <span>(12)</span></a></li>
-      <li><a href="#">Art <span>(17)</span></a></li>
-      <li><a href="#">Nature <span>(45)</span></a></li>
-      <li><a href="#">Photo <span>(30)</span></a></li>
-      <li><a href="#">Travel <span>(47)</span></a></li>
+        {% if categories %}
+            {% for category in categories %}
+            <li><a href="/blog/category/{{ category.slug }}">{{ category.name }} <span>({{ category.related_post }})</span></a></li>
+            {% endfor %}
+        {% else %}
+        <li><a href="#">懒人日记<span>(100^100)</span></a></li> <!-- 404 pages -->
+        {% endif %}
     </ul>
   </div> <!--//End Categories-->
 
@@ -56,7 +58,7 @@
             <a href="#">{{ tag.name }}</a>
             {% endfor %}
         {% else %}
-        <a href="#">懒人一个</a> <!-- The 404 Page -->>
+        <a href="#">懒人一个</a> <!-- The 404 Page -->
         {% endif %}
     </div>
   </div> <!-- //End Tags -->

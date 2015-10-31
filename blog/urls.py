@@ -4,4 +4,5 @@ from blog import views
 urlpatterns = patterns('', 
         url(r'^$', views.index, name='index'),
         url(r'about/', views.about, name='about'), # This is the bloig about me section
+        url(r'^category/(?P<category_name_slug>[\w\-]+)/$', views.category, name='category')
         )

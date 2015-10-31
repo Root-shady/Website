@@ -4,5 +4,8 @@ $(document).ready(function() {
         //Scrolling
         autoscrolling: true,
         loopBottom: true,
+        loopTop: true,
     });
 });
+// View the github page for full configuration parameter
+// https://github.com/alvarotrigo/fullPage.js
