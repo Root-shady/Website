@@ -8,7 +8,29 @@ from blog.models import Tag, Category, Post
 def index(request):
     context_dict = common()
     post_list = Post.objects.order_by('publish_date')
-    context_dict['posts'] = post_list
+
+    # Adding the category of the post, bundle the post object and the category object together.
+    class Append_category():
+        pass
+    result = []
+    for post in post_list:
+        add_category = Append_category()
+        add_category.post = post
+# Retreive the category of the post(FK)
+        add_category.category = Category.objects.get(post=post.category_id)
+        result.append(add_category)
+    post_list = result
+
+    paginator = Paginator(post_list, 3)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    context_dict['posts'] = posts
     return render(request, 'blog/index.html', context_dict)
 
 # Return the Tags and the Categories
@@ -71,6 +93,40 @@ def category(request, category_name_slug):
 
     context_dict['posts'] = posts
     return render(request, 'blog/category.html', context_dict)
+
+def tags(request, tag_name_slug):
+    context_dict = common()
+    try:
+        tag = Tag.objects.get(slug=tag_name_slug)
+        posts_list = Post.objects.filter(tags = tag.tag_id)
+        context_dict['tag'] = tag
+    except (Tag.DoesNotExist, Post.DoesNotExist):
+        pass
+    class Append_category():
+        pass
+
+    result = []
+    for post in posts_list:
+        add_category = Append_category()
+        add_category.category = Category.objects.get(post = post.post_id)
+        add_category.tags = Tag.objects.filter(post=post.post_id)
+        add_category.post = post
+        result.append(add_category)
+
+    posts_list = result
+    paginator = Paginator(posts_list, 5)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+    # if the page is not an integer, deliver first page
+        posts = paginator.page(1)
+    except EmptyPage:
+    # If page is out of range, deliver last page of results
+        posts = paginator.page(paginator.num_pages)
+
+    context_dict['posts'] = posts
+    return render(request, 'blog/tags.html', context_dict)
 
 def single_post(request, category_name_slug, post_title):
     context_dict = common()

@@ -2,16 +2,15 @@
 <!--//Content Area//-->
 <div class="sp-content-area">
 
-    {% include 'blog/single.html' %}
-{% load staticfiles %}
 <!--//Post//-->
+{% for item in posts %}
 <article class="sp-post">
     <div class="row" >
         <div class="col-md-2">
         </div>
         <div class="col-md-10">
             <figure class="sp-thumb-container">
-                <a href="single.html"><img src="{% static 'blog/images/coffee.jpg' %}" alt="Cannot load"></a>
+                <img src="{% static 'blog/images/coffee.jpg' %}" alt="Cannot load">
             </figure>
         </div>
     </div>
@@ -21,19 +20,19 @@
                 <div class="sp-post-desc">
                     <header class="sp-post-header">
                         <div class="sp-meta">
-                            <span><a href="#">Photography</a></span> 
-                            <span><a href="#">August 20, 2015</a></span>
+                            <span><a href="{% url 'category' item.category.slug %}">{{ item.category }}</a></span> 
+                            <span>{{ item.post.publish_date }}/span>
                         </div>
-                        <h2 class="sp-post-title"><a href="single.html">Mountain Winter Landscape in Austria</a></h2>
+                        <h2 class="sp-post-title"><a href="{% url 'single_post' item.category item.post.slug %}">{{ item.post.title }}</a></h2>
                             <div class="sp-post-info sp-clearfix">
                                 <div class="sp-post-meta">
                                     <img class="sp-avatar" src="{% static 'blog/images/forg.jpg' %}" alt="">
-                                    <p class="sp-author-name"><i>by:</i> <a href="author.html">Katy Wittner</a></p>
-                                    <p class="sp-comment-count"><a href="#">27 Comments</a></p>
+                                        <p class="sp-author-name"><i class="fa fa-pencil"></i> by:<a href="/about.html">{{ item.post.author }}</a></p>
+                                    <p class="sp-comment-count"> <i class="fa fa-tripadvisor"></i> views: {{ item.post.views }} </p>
                                     <hr class="sp-separator">
                                 </div>
                                 <div class="sp-share-this">
-                                    <p class="sp-meta-title">Share on:</p>
+                                    <p class="sp-meta-title"> FollowMe:</p>
                                     <p class="sp-share-list">
                                     <a class="facebook" href="#" data-toggle="tooltip" data-replacement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
                                     <a class="weixin" href="#" data-toggle="tooltip" data-replacement="top" title="Weixin"><i class="fa fa-weixin"></i></a>
@@ -44,17 +43,36 @@
                             </div>
                     </header>
                 <div class="sp-entry-content">
-                    <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man. I would start my career as a secretary in a little nine-person real estate firm.</p>
-                    <p>We want to explore. We’re curious people. Look back over history, people have put their lives at stake to go out and explore … We believe in what we’re doing. Now it’s time to go not yet mastered prophecy.</p>
+                    <p>{{ item.post.abstract }}</p>
                     <p>...</p>
                 </div>
-                <a class="sp-more button button-default" href="single.html">Read More</a>
+                <a class="sp-more button button-default" href="{% url 'single_post' item.category.slug item.post.slug %}">Read More</a>
             </div>
         </div>
     </div>
 </article> <!--//End Post-->
-    {% include 'blog/single.html' %}
-    {% include 'blog/single.html' %}
-    {% include 'blog/single.html' %}
+{% endfor %}
 
 </div>
+
+<!-- 实现分页显示 -->
+<div class="sp-pagination">
+    <div class="sp-container">
+        <div class="sp-pagination-inner sp-clearfix">
+
+            {% if posts.has_previous %}
+                <a class="sp-prev" href="?page={{ posts.previous_page_number }}"><i class="fa fa-caret-square-o-left"></i> 上一页</a>
+            {% endif %}
+
+            <div class="sp-category"> <!-- Borrow the css format from the post.html -->
+                Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+            </div>
+
+            {% if posts.has_next %}
+                <a class="sp-next" href="?page={{ posts.next_page_number }}">下一页 <i class="fa fa-caret-square-o-right"></i></a>
+            {% endif %}
+
+        </div>
+    </div>
+</div><!-- End of the pagination -->
+

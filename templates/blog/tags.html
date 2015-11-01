@@ -5,9 +5,9 @@
 <div class="container"><!-- Override the css of the container in bootstrap -->
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <h1 class="category-name"><i class="fa-icon fa fa-cubes fa-2x"></i>{{ category_name }}</h1>
+            <h1 class="category-name"><i class="fa-icon fa fa-cubes fa-2x"></i>Tag: {{ tag.name }}</h1>
             <!-- 打印对应的文章信息 -->
-            {% if category %}
+            {% if tag %}
                 {% if posts %}
                     {% for bundle in posts %}
                         <div class="row">
@@ -16,16 +16,14 @@
                         <span class="infor"><i class="fa fa-calendar-check-o fa-2x"></i> 发表时间：2014-12-02 </span>
                     </div>
                     <div class ="col-xs-8 col-sm-6">
-                        <!--
-                        <a class="post-title" href="../blog/category/{{ category }}/{{ bundle.post.slug }}/" data-toggle="tooltip" data-placement="top" title="点击查看该文章～" >    {{ bundle.post.title }} </a> -->
-    <a class="post-title" href="{% url 'single_post' category bundle.post.slug  %}" data-toggle="tooltip" data-placement="top" title="点击查看该文章～" >    {{ bundle.post.title }} </a>
+                        <a class="post-title" href="{% url 'single_post' bundle.category  bundle.post.slug %}" data-toggle="tooltip" data-placement="top" title="点击查看该文章～" >    {{ bundle.post.title }} </a>
                         <div class="blog-infor pull right">
                             <span><i class="fa fa-tags"></i> 标签: 
-                                {% for tag in bundle.tags %}
-                                    <span>{{ tag.name }} |  </span>
+                                {% for each_tag in bundle.tags %}
+                                    <span><a href="{% url 'tags' each_tag.slug %}"> {{ each_tag.name }} |</a></span>
                                 {% endfor %}
                             </span>
-                            <span><i class="fa fa-folder"></i>  分类: {{ category }}</span>
+                            <span><i class="fa fa-folder"></i>  分类: <a href="{% url 'category' bundle.category.slug %}">{{ bundle.category.name }}</a></span>
                         </div>
                     </div>
                     </div>

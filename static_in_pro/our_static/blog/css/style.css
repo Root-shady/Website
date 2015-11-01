@@ -477,7 +477,7 @@ table {
     min-height: 60vh !important;
 }
 .sp-canvas .sp-content-wrap .container .category-name{
-    text-transform: lowercase;
+    /*text-transform: lowercase;*/
     color: #1DACDB;
  }
 .sp-canvas .sp-content-wrap .container .infor {
@@ -498,6 +498,13 @@ table {
     margin-top: 40px;
     color: #08799E;
     text-align: right;
+}
+.sp-canvas .sp-content-wrap .container  .blog-infor a{
+    color: #08799E;
+}
+.sp-canvas .sp-content-wrap .container  .blog-infor a:hover {
+    color: #1DACDB;
+    text-decoration: underline;
 }
 .sp-canvas .sp-content-wrap .container .img-circle {
     border-radius: 50%;
@@ -1070,12 +1077,15 @@ table {
   font-size: 3.1em;
   letter-spacing: 0.0157em;
   line-height: 1.12;
+  /* Post title color */
+  color: #D49B20;
 }
 .sp-post .sp-post-title a {
   color: #343434;
 }
 .sp-post .sp-post-title a:hover {
   text-decoration: underline;
+  color: #2F97BA;
 }
 .sp-post .sp-post-footer {
   margin-top: 50px;
@@ -1302,8 +1312,9 @@ table {
   color: #007bb6;
 }
 /* ---------------------------------------------------------------------- */
-/*	7.0 Pagination
+/*	7.0 Pagination Back to top
 /* ---------------------------------------------------------------------- */
+/*Main stylesheet for Backtop jQuery Plugin */
 .sp-pagination {
   margin-top: 80px;
   line-height: 1;
