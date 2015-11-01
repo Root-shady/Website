@@ -78,7 +78,7 @@ def category(request, category_name_slug):
         posts_list = result
 
     except Category.DoesNotExist:
-        pass
+        return render(request, 'common/404.html')
 
     paginator = Paginator(posts_list, 5)
     page = request.GET.get('page')
