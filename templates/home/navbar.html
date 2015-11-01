@@ -9,24 +9,24 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href=".">Shady's Paradigm</a>
+                    <a class="navbar-brand" href="{% url 'home' %}">Shady's Paradigm</a>
                 </div>
 
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="home"><!-- class="active" -->
+                        <li><a href="{% url 'home' %}"><!-- class="active" -->
                             <span class="glyphicon glyphicon-send" aria-hidden="true"> Home</span></a>
                         </li>
-                        <li><a href="../blog/">
+                        <li><a href="{% url 'index' %}">
                             <span class="glyphicon glyphicon-bookmark" aria-hidden="true"> Blog</span></a>
                         </li>
                         <li><a href="#vpn">
                             <span class="glyphicon glyphicon-leaf" aria-hidden="true"> VPN</span></a>
                         </li>
-                        <li><a href="home/about/">
+                        <li><a href="{% url 'about' %}">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"> About</span></a>
                         </li>
-                        <li><a href="home/contect/">
+                        <li><a href="../contect/">
                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"> Contact</span></a>
                         </li>
                         <li class="dropdown">

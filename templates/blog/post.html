@@ -19,7 +19,7 @@
                 <div class="sp-post-desc">
                     <header class="sp-post-header">
                         <div class="sp-meta">
-                            <span><a href="/blog/category/{{ category }}">{{ category }}</a></span> 
+                            <span><a href="{% url 'category' category %}">{{ category }}</a></span> 
                             <span>{{ post.publish_date }}</span>
                         </div>
                         <h2 class="sp-post-title">{{ post.title }}</h2>
@@ -56,13 +56,13 @@
                 <div class="sp-container">
                     <div class="sp-pagination-inner sp-clearfix">
                         {% if condition.has_pre %}
-                            <a class="sp-prev" href="/blog/category/{{ category }}/{{ condition.pre_slug }}/"><i class="fa fa-caret-square-o-left"></i>上一页</a>
+                            <a class="sp-prev" href="{% url 'single_post' category condition.pre_slug %}"><i class="fa fa-caret-square-o-left"></i>上一页</a>
                         {% endif %}
                         {% if category %}
-                            <a class="sp-category" href="/blog/category/{{ category }}/"><i class="fa fa-tree"></i>分类目录</a>
+                            <a class="sp-category" href="{% url 'category' category %}"><i class="fa fa-tree"></i>分类目录</a>
                         {% endif %}
                         {% if condition.has_next %}
-                            <a class="sp-next" href="/blog/category/{{ category }}/{{ condition.next_slug }}/">下一页<i class="fa fa-caret-square-o-right"></i></a>
+                            <a class="sp-next" href="{% url 'single_post' category condition.next_slug %}">下一页<i class="fa fa-caret-square-o-right"></i></a>
                         {% endif %}
                     </div>
                 </div>

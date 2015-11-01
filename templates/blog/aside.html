@@ -26,8 +26,8 @@
   <div class="sp-widget sp-menu">
         <div class="list-group">
             <ul class="sp-nav">
-                <li><a class="list-group-item" href="../"><i class="fa fa-home fa-fw"></i>&nbsp;主页</a></li>
-                <li><a class="list-group-item" href="../blog/"><i class="fa fa-rss fa-fw"></i>&nbsp;博客</a></li>
+                <li><a class="list-group-item" href="{% url 'home' %}"><i class="fa fa-home fa-fw"></i>&nbsp;主页</a></li>
+                <li><a class="list-group-item" href="{% url 'index' %}"><i class="fa fa-rss fa-fw"></i>&nbsp;博客</a></li>
                 <li><a class="list-group-item" href="../blog/time.html"><i class="fa fa-paper-plane-o fa-fw"></i>&nbsp;时间线</a></li>
                 <li><a class="list-group-item" href="../blog/about.html"><i class="fa fa-envelope fa-fw"></i>&nbsp;关于 & 联系</a></li>
                 <li><a class="list-group-item" href="../blog/link.html"><i class="fa fa-link fa-fw"></i>&nbsp;友链</a></li>
@@ -41,7 +41,7 @@
     <ul class="sp-nav sp-category">
         {% if categories %}
             {% for category in categories %}
-            <li><a href="../blog/category/{{ category.slug }}">{{ category.name }} <span>({{ category.related_post }})</span></a></li>
+            <li><a href="{% url 'category' category.slug %}">{{ category.name }} <span>({{ category.related_post }})</span></a></li>
             {% endfor %}
         {% else %}
         <li><a href="#">懒人日记<span>(100^100)</span></a></li> <!-- 404 pages -->

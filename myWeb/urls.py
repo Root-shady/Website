@@ -10,9 +10,10 @@ urlpatterns = patterns('',
     # url(r'^$', 'myWeb.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'grappelli/', include('grappelli.urls')),
-    url(r'^$|^home/', include('home.urls')), # The website homepage
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'home.views.home', name="home"),  # The website homepage
+    url(r'^home/', include('home.urls')), # The website homepage
     url(r'^blog/', include('blog.urls')),
+    url(r'^admin/', include(admin.site.urls)),
 )
 if not settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

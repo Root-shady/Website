@@ -3,6 +3,56 @@
 <div class="sp-content-area">
 
     {% include 'blog/single.html' %}
+{% load staticfiles %}
+<!--//Post//-->
+<article class="sp-post">
+    <div class="row" >
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-10">
+            <figure class="sp-thumb-container">
+                <a href="single.html"><img src="{% static 'blog/images/coffee.jpg' %}" alt="Cannot load"></a>
+            </figure>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="sp-post-content">
+            <div class="sp-container">
+                <div class="sp-post-desc">
+                    <header class="sp-post-header">
+                        <div class="sp-meta">
+                            <span><a href="#">Photography</a></span> 
+                            <span><a href="#">August 20, 2015</a></span>
+                        </div>
+                        <h2 class="sp-post-title"><a href="single.html">Mountain Winter Landscape in Austria</a></h2>
+                            <div class="sp-post-info sp-clearfix">
+                                <div class="sp-post-meta">
+                                    <img class="sp-avatar" src="{% static 'blog/images/forg.jpg' %}" alt="">
+                                    <p class="sp-author-name"><i>by:</i> <a href="author.html">Katy Wittner</a></p>
+                                    <p class="sp-comment-count"><a href="#">27 Comments</a></p>
+                                    <hr class="sp-separator">
+                                </div>
+                                <div class="sp-share-this">
+                                    <p class="sp-meta-title">Share on:</p>
+                                    <p class="sp-share-list">
+                                    <a class="facebook" href="#" data-toggle="tooltip" data-replacement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+                                    <a class="weixin" href="#" data-toggle="tooltip" data-replacement="top" title="Weixin"><i class="fa fa-weixin"></i></a>
+                                    <a class="mail" href="#" data-toggle="tooltip" data-replacement="top" title="Gmail"><i class="fa fa-envelope"></i></a>
+                                    <a class="github" href="#" data-toggle="tooltip" data-replacement="top" title="Github"><i class="fa fa-github"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                    </header>
+                <div class="sp-entry-content">
+                    <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man. I would start my career as a secretary in a little nine-person real estate firm.</p>
+                    <p>We want to explore. We’re curious people. Look back over history, people have put their lives at stake to go out and explore … We believe in what we’re doing. Now it’s time to go not yet mastered prophecy.</p>
+                    <p>...</p>
+                </div>
+                <a class="sp-more button button-default" href="single.html">Read More</a>
+            </div>
+        </div>
+    </div>
+</article> <!--//End Post-->
     {% include 'blog/single.html' %}
     {% include 'blog/single.html' %}
     {% include 'blog/single.html' %}
