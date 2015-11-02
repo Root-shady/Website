@@ -24,7 +24,7 @@ class Post(models.Model):
     post_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=50)
     content = models.TextField()
-    abstract = models.CharField(max_length=200)
+    abstract = models.CharField(max_length=300)
     publish_date = models.DateTimeField(auto_now_add=True)
     author = models.CharField(max_length=20)
     # 0 stands for public
@@ -40,10 +40,20 @@ class Post(models.Model):
     likes = models.PositiveIntegerField(default=0)
     category= models.ForeignKey('Category')
     tags = models.ManyToManyField(Tag)
-
     slug = models.SlugField(unique=True)
 
+
     def save(self, *args, **kwargs):
+        # The post is first add, instead of update 
+        if not self.post_id:
+            category = Category.objects.get(pk = self.category_id)
+            category.related_post += 1
+            category.save()
+            tags = Tag.objects.filter(post__post_id = self.post_id)
+            for tag in tags:
+                tag.frequence += 1
+                tag.save()
+
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 

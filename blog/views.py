@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.urlresolvers import reverse
 from blog.models import Tag, Category, Post
 
 # Create your views here.
@@ -7,7 +8,7 @@ from blog.models import Tag, Category, Post
 # Create the home page of the blog
 def index(request):
     context_dict = common()
-    post_list = Post.objects.order_by('publish_date')
+    post_list = Post.objects.order_by('-publish_date')
 
     # Adding the category of the post, bundle the post object and the category object together.
     class Append_category():
@@ -17,7 +18,7 @@ def index(request):
         add_category = Append_category()
         add_category.post = post
 # Retreive the category of the post(FK)
-        add_category.category = Category.objects.filter(post__post_id=post.category_id)[0]
+        add_category.category = Category.objects.get(pk=post.category_id)
         result.append(add_category)
     post_list = result
 
@@ -108,7 +109,7 @@ def tags(request, tag_name_slug):
     result = []
     for post in posts_list:
         add_category = Append_category()
-        add_category.category = Category.objects.get(post__post_id = post.post_id)
+        add_category.category = Category.objects.get(pk = post.category_id)
         add_category.tags = Tag.objects.filter(post__post_id=post.post_id)
         add_category.post = post
         result.append(add_category)
