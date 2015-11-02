@@ -1,5 +1,6 @@
 from django.db import models
-from django.template.defaultfilters import slugify
+#from django.template.defaultfilters import slugify
+from slugify import slugify
 
 # Create your models here.
 class Tag(models.Model):

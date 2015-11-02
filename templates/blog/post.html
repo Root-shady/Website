@@ -1,5 +1,6 @@
 {% extends 'blog/blog_base.html' %}
 {% load staticfiles %}
+{% load markdown_deux_tags %}
 
 {% block update %}
 <!--//Post//-->
@@ -44,7 +45,7 @@
 
                 <div class="sp-entry-content">
                     <!-- The whole content -->
-                    {{ post.content }}
+                    {{ post.content | markdown:"trusted" }}
                 </div>
             </div>
         </div>

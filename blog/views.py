@@ -17,7 +17,7 @@ def index(request):
         add_category = Append_category()
         add_category.post = post
 # Retreive the category of the post(FK)
-        add_category.category = Category.objects.get(post=post.category_id)
+        add_category.category = Category.objects.filter(post__post_id=post.category_id)[0]
         result.append(add_category)
     post_list = result
 
@@ -57,7 +57,7 @@ def category(request, category_name_slug):
         context_dict['category_name'] = category.name
         # Retrieve all the associated pages
         # Note that filter returns >= 1 model instance
-        posts_list = Post.objects.filter(category=category)
+        posts_list = Post.objects.filter(category__category_id=category.category_id)
 
 
         # Cannot find another good way to do this. Mark here for better improvement
@@ -69,7 +69,7 @@ def category(request, category_name_slug):
         for post in posts_list:
             add_tag = Append_tag()
 # Add the tags object 
-            add_tag.tags = Tag.objects.filter(post = post.post_id)
+            add_tag.tags = Tag.objects.filter(post__post_id = post.post_id)
 # add the original post object
             add_tag.post = post
             result.append(add_tag)
@@ -98,7 +98,7 @@ def tags(request, tag_name_slug):
     context_dict = common()
     try:
         tag = Tag.objects.get(slug=tag_name_slug)
-        posts_list = Post.objects.filter(tags = tag.tag_id)
+        posts_list = Post.objects.filter(tags__tag_id = tag.tag_id)
         context_dict['tag'] = tag
     except (Tag.DoesNotExist, Post.DoesNotExist):
         pass
@@ -108,8 +108,8 @@ def tags(request, tag_name_slug):
     result = []
     for post in posts_list:
         add_category = Append_category()
-        add_category.category = Category.objects.get(post = post.post_id)
-        add_category.tags = Tag.objects.filter(post=post.post_id)
+        add_category.category = Category.objects.get(post__post_id = post.post_id)
+        add_category.tags = Tag.objects.filter(post__post_id=post.post_id)
         add_category.post = post
         result.append(add_category)
 
@@ -133,7 +133,7 @@ def single_post(request, category_name_slug, post_title):
     try:
         post = Post.objects.get(slug=post_title)
         category = Category.objects.get(slug=category_name_slug)
-        post_list = Post.objects.filter(category=category).order_by('post_id')
+        post_list = Post.objects.filter(category__category_id=category.category_id).order_by('post_id')
     except (Post.DoesNotExist, Category.DoesNotExist):
         pass#404 here
 # To check if there are next page or previus page. Not related to the category

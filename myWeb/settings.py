@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "markdown_deux",
     'home',
     'blog',
 
@@ -118,3 +119,15 @@ TEMPLATES = [
     },
 ]
 #'TEMPLATE_DEBUG' : True,
+# Setting for markdown_deux 
+MARKDOWN_DEUX_STYLES = {
+        "trusted" :{    
+            "extras":{
+                    "code-friendly": None,
+                    "html-classes": {"pre":"prettyprint", "code":"codesnippet","img":"postimage"},
+                    "fenced-code-blocks": None,
+                    "header-ids": None,
+                    },
+            "safe_mode": "escape",
+            }
+        }
