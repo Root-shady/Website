@@ -20,10 +20,10 @@
                 <div class="sp-post-desc">
                     <header class="sp-post-header">
                         <div class="sp-meta">
-                            <span><a href="{% url 'category' item.category.slug %}">{{ item.category }}</a></span> 
+                            <span><a href="{% url 'blog:category' item.category.slug %}">{{ item.category }}</a></span> 
                             <span>{{ item.post.publish_date }}/span>
                         </div>
-                        <h2 class="sp-post-title"><a href="{% url 'single_post' item.category item.post.slug %}">{{ item.post.title }}</a></h2>
+                        <h2 class="sp-post-title"><a href="{% url 'blog:single_post' item.category item.post.slug %}">{{ item.post.title }}</a></h2>
                             <div class="sp-post-info sp-clearfix">
                                 <div class="sp-post-meta">
                                     <img class="sp-avatar" src="{% static 'blog/images/forg.jpg' %}" alt="">
@@ -46,7 +46,7 @@
                     <p>{{ item.post.abstract }}</p>
                     <p>...</p>
                 </div>
-                <a class="sp-more button button-default" href="{% url 'single_post' item.category.slug item.post.slug %}">Read More</a>
+                <a class="sp-more button button-default" href="{% url 'blog:single_post' item.category.slug item.post.slug %}">Read More</a>
             </div>
         </div>
     </div>

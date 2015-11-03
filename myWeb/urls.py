@@ -11,8 +11,9 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'grappelli/', include('grappelli.urls')),
     url(r'^$', 'home.views.home', name="home"),  # The website homepage
-    url(r'^home/', include('home.urls')), # The website homepage
-    url(r'^blog/', include('blog.urls')),
+    url(r'^home/', include('home.urls', namespace="home")), # The website homepage
+    url(r'^blog/', include('blog.urls', namespace="blog")),
+    url(r'^vpn/', include('vpn.urls', namespace="vpn")),
     url(r'^admin/', include(admin.site.urls)),
 )
 if not settings.DEBUG:

@@ -49,7 +49,7 @@ class Post(models.Model):
             category = Category.objects.get(pk = self.category_id)
             category.related_post += 1
             category.save()
-            tags = Tag.objects.filter(post__post_id = self.post_id)
+            tags = Tag.objects.filter(post__pk = self.post_id)
             for tag in tags:
                 tag.frequence += 1
                 tag.save()

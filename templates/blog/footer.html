@@ -43,8 +43,8 @@
       <p class="sp-copyright">Copyright &copy; 2015 &mdash; <a href="../">CopyCat</a> Powered By <a href="https://www.djangoproject.com/">Django</a></p> <!--//End Copyright-->
       <!--//Footer Nav//-->
       <ul class="sp-footer-nav">
-          <li><a href="../"><i class="fa fa-home fa-2x"></i>主页</a></li>
-          <li><a href="../blog/"><i class="fa fa-rss fa-2x"></i>博客</a></li>
+          <li><a href="{% url 'home:home' %}"><i class="fa fa-home fa-2x"></i>主页</a></li>
+          <li><a href="{% url 'blog:index' %}"><i class="fa fa-rss fa-2x"></i>博客</a></li>
           <li><a href="#top"><i class="fa fa-rocket fa-2x"></i>顶部</a></li>
       </ul> <!--//End Footer Nav-->
     </div>

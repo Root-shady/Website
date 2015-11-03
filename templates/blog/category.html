@@ -18,14 +18,14 @@
                     <div class ="col-xs-8 col-sm-6">
                         <!--
                         <a class="post-title" href="../blog/category/{{ category }}/{{ bundle.post.slug }}/" data-toggle="tooltip" data-placement="top" title="点击查看该文章～" >    {{ bundle.post.title }} </a> -->
-    <a class="post-title" href="{% url 'single_post' category bundle.post.slug  %}" data-toggle="tooltip" data-placement="top" title="点击查看该文章～" >    {{ bundle.post.title }} </a>
+    <a class="post-title" href="{% url 'blog:single_post' category bundle.post.slug  %}" data-toggle="tooltip" data-placement="top" title="点击查看该文章～" >    {{ bundle.post.title }} </a>
                         <div class="blog-infor pull right">
                             <span><i class="fa fa-tags"></i> 标签: 
                                 {% for tag in bundle.tags %}
-                                    <span><a href="{% url 'tags' tag.slug %}">{{ tag.name }} |  </a></span>
+                                    <span><a href="{% url 'blog:tags' tag.slug %}">{{ tag.name }} |  </a></span>
                                 {% endfor %}
                             </span>
-                            <span><i class="fa fa-folder"></i>  分类:<a href="{% url 'category' category.slug %}"> {{ category }}</a></span>
+                            <span><i class="fa fa-folder"></i>  分类:<a href="{% url 'blog:category' category.slug %}"> {{ category }}</a></span>
                         </div>
                     </div>
                     </div>
