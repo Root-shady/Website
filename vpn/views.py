@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from vpn.models import User
 from vpn.forms import UserForm
 # Create your views here.
 
-# The home page of the VPN
-def index(request):
+# The home page of the VPN  
+# if the request is a POST, we process form data, if it is a GET, we show the form
+def register(request):
+    context_dict = {}
     if request.method == 'POST':
         form = UserForm(request.POST)
 # Have we benn provided with a valid form
@@ -20,5 +23,10 @@ def index(request):
         form = UserForm()
 # Bad from, no form supplied(form details)
 # Render the form with error message(if any
-    return render(request, 'vpn/index')
+    return render(request, 'vpn/register.html', {'form': form})
+
+def index(request):
+    context_dict = {}
+    return render(request, 'vpn/index.html', context_dict)
+
 

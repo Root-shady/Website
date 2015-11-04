@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "markdown_deux",
+    "crispy_forms",
     "vpn",
     'home',
     'blog',
@@ -132,3 +133,5 @@ MARKDOWN_DEUX_STYLES = {
             "safe_mode": "escape",
             }
         }
+# Setting the CSS frameworks that crispy-form used.
+CRISPY_TEMPLATE_PACK = 'bootstrap3' 

@@ -11,11 +11,14 @@ class User(models.Model):
     FEMALE = 'F'
     MALE = 'M'
     SEX_CHOICE = ((FEMALE, 'female'),(MALE, 'male'))
-    sex = models.CharField(max_length=1, choices=SEX_CHOICE, default=FEMALE,blank=True)
+    sex = models.CharField(max_length=1, choices=SEX_CHOICE,blank=True)
 
     joined_date = models.DateTimeField(editable=False)
     last_login = models.DateTimeField()
+# An integer stands for the level of the user(potnetial buyer)
     user_level = models.PositiveIntegerField(default=0)
+# Email validation (proved or not)
+    status = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.username
@@ -23,6 +26,6 @@ class User(models.Model):
     def save(self, *args, **kwargs):
 # On save, update timestamps 
         if not self.user_id:
-            self.created = timezone.now()
+            self.joined_date = timezone.now()
         self.last_login = timezone.now()
         super(User, self).save(*args, **kwargs)

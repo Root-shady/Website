@@ -1,1 +1,29 @@
-<h1>This is the register page</h1>
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block custome_css %}
+    <style>
+        body {
+          padding-top: 80px;
+          padding-bottom: 40px;
+          background-color: #eee;
+          height: 100vh;
+          background: url('{% static "vpn/images/signup.jpg" %}') no-repeat center center fixed; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-8 col-sm-6 col-md-4 col-xs-offset-2 col-sm-3 col-md-offset-4">
+    {% crispy form %}
+    </div>
+    </div>
+{% endblock %}
+
