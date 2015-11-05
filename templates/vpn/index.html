@@ -11,7 +11,11 @@
 
 {% block content %}
     <!-- Validate if user logging in, different views -->
-    {% include 'vpn/navbar.html' %}
+    {% if username %}
+        {% include 'vpn/signbar.html' %}
+    {% else %}
+        {% include 'vpn/navbar.html' %}
+    {% endif %}
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
