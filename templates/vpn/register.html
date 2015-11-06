@@ -22,8 +22,11 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-8 col-sm-6 col-md-4 col-xs-offset-2 col-sm-3 col-md-offset-4">
-    {% crispy form %}
-    </div>
+            <form action='' method="post">
+                {% crispy user_form %}
+                {% crispy profile_form %}
+            </form>
+        </div>
     </div>
 {% endblock %}
 

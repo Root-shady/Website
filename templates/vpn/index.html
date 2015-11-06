@@ -11,7 +11,7 @@
 
 {% block content %}
     <!-- Validate if user logging in, different views -->
-    {% if username %}
+    {% if user.is_authenticated %}
         {% include 'vpn/signbar.html' %}
     {% else %}
         {% include 'vpn/navbar.html' %}

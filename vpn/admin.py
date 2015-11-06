@@ -1,9 +1,9 @@
 from django.contrib import admin
 
 # Register your models here.
-from vpn.models import User
+from vpn.models import UserProfile
 
-class UserAdmin(admin.ModelAdmin):
-    list_display = ['user_id', 'username', 'email', 'password', 'sex', 'joined_date', 'last_login', 'user_level', 'status']
+#class UserProfileAdmin(admin.ModelAdmin):
+    #list_display = ['user_id', 'username', 'email', 'password', 'sex', 'joined_date', 'last_login', 'user_level', 'status']
 
-admin.site.register(User, UserAdmin)
+admin.site.register(UserProfile)
