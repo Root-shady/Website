@@ -11,8 +11,6 @@ class UserProfile(models.Model):
     sex = models.CharField(max_length=1, choices=SEX_CHOICE,blank=True)
 
     website = models.URLField(blank=True)
-    picture = models.ImageField(upload_to='profile_images', blank=True)
-
     last_login = models.DateTimeField(auto_now=True)
 # An integer stands for the level of the user(potnetial buyer)
     user_level = models.PositiveIntegerField(default=0)

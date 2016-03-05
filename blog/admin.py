@@ -8,7 +8,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
-    list_display = ['post_id', 'title','status','category','author','publish_date','slug']
+    list_display = ['post_id', 'title','status','category','author','publish_date','slug', 'image_link']
     #fieldsets = [
     #        ('Author', {'fields':['author']}),
     #        ('Post information', {'fields':['post_id','title', 'category', 'publish_date','slug','status','abstract'], "classes":['collapse']} ),

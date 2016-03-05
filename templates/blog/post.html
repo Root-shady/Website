@@ -6,15 +6,6 @@
 <!--//Post//-->
 <article class="sp-post">
     <div class="row" >
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-10">
-            <figure class="sp-thumb-container">
-                <a href="single.html"><img src="{% static 'blog/images/coffee.jpg' %}" alt="Cannot load"></a>
-            </figure>
-        </div>
-    </div>
-    <div class="row" >
         <div class="sp-post-content">
             <div class="sp-container">
                 <div class="sp-post-desc">
@@ -23,10 +14,10 @@
                             <span><a href="{% url 'blog:category' category %}">{{ category }}</a></span> 
                             <span>{{ post.publish_date }}</span>
                         </div>
-                        <h2 class="sp-post-title">{{ post.title }}</h2>
+                        <a href="."><h2 class="sp-post-title">{{ post.title }}</h2></a>
                             <div class="sp-post-info sp-clearfix">
                                 <div class="sp-post-meta">
-                                    <img class="sp-avatar" src="{% static 'blog/images/forg.jpg' %}" alt="">
+                                    <img class="sp-avatar" src="http://7xo4sa.com1.z0.glb.clouddn.com/owl.jpg" alt="">
                                     <p class="sp-author-name"><i class="fa fa-pencil"></i> by:<a href="/blog/about.html">{{ post.author }}</a></p>
                                     <p class="sp-comment-count"> <i class="fa fa-tripadvisor"></i> views: {{ post.views }} </p>
                                     <hr class="sp-separator">

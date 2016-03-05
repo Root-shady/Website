@@ -40,10 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'markdown_deux',
     'crispy_forms',
-    'vpn',
     'home',
     'blog',
-
 )
 
 MIDDLEWARE_CLASSES = (
@@ -68,7 +66,7 @@ WSGI_APPLICATION = 'myWeb.wsgi.application'
 DATABASES = {
     'default':{
             'ENGINE': 'mysql.connector.django',
-            'NAME': 'blog',
+            'NAME': 'shady_blog',
             'USER': 'shady',
             'PASSWORD':'6566619',
         }

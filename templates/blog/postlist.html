@@ -5,15 +5,17 @@
 <!--//Post//-->
 {% for item in posts %}
 <article class="sp-post">
+{% if item.post.image_link %}
     <div class="row" >
         <div class="col-md-2">
         </div>
         <div class="col-md-10">
             <figure class="sp-thumb-container">
-                <img src="{% static 'blog/images/coffee.jpg' %}" alt="Cannot load">
+                <a href="single.html"><img src="{{ item.post.image_link }}" alt="Cannot load"></a>
             </figure>
         </div>
     </div>
+{% endif %}
     <div class="row" >
         <div class="sp-post-content">
             <div class="sp-container">
@@ -26,7 +28,7 @@
                         <h2 class="sp-post-title"><a href="{% url 'blog:single_post' item.category item.post.slug %}">{{ item.post.title }}</a></h2>
                             <div class="sp-post-info sp-clearfix">
                                 <div class="sp-post-meta">
-                                    <img class="sp-avatar" src="{% static 'blog/images/forg.jpg' %}" alt="">
+                                    <img class="sp-avatar" src="http://7xo4sa.com1.z0.glb.clouddn.com/owl.jpg" alt="">
                                         <p class="sp-author-name"><i class="fa fa-pencil"></i> by:<a href="/about.html">{{ item.post.author }}</a></p>
                                     <p class="sp-comment-count"> <i class="fa fa-tripadvisor"></i> views: {{ item.post.views }} </p>
                                     <hr class="sp-separator">

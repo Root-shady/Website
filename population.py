@@ -9,6 +9,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myWeb.settings')
 import django
 django.setup()
 
+
 from blog.models import Category, Tag
 
 def populate():

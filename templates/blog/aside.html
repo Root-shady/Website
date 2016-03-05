@@ -55,7 +55,7 @@
     <div class="sp-tag-cloud">
         {% if tags %}
             {% for tag in tags %}
-            <a href="{% url 'blog:tags' tag.slug %}">{{ tag.name }} &{{ tag.frequence }}</a>
+            <a href="{% url 'blog:tags' tag.slug %}">{{ tag.name }} </a>
             {% endfor %}
         {% else %}
         <a href="#">懒人一个</a> <!-- The 404 Page -->

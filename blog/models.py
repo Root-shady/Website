@@ -38,6 +38,7 @@ class Post(models.Model):
     status = models.CharField(max_length=2, choices=POST_ATTRIBUTES,default='PL')
     views = models.PositiveIntegerField(default=0)
     likes = models.PositiveIntegerField(default=0)
+    image_link = models.URLField(blank=True)
     category= models.ForeignKey('Category')
     tags = models.ManyToManyField(Tag)
     slug = models.SlugField(unique=True)
@@ -49,11 +50,11 @@ class Post(models.Model):
             category = Category.objects.get(pk = self.category_id)
             category.related_post += 1
             category.save()
-            tags = Tag.objects.filter(post__pk = self.post_id)
-            for tag in tags:
-                tag.frequence += 1
-                tag.save()
-
+#            tags = Tag.objects.filter(post__post_id = self.post_id)
+#            for tag in tags:
+#                tag.frequence += 1
+#                tag.save()
+#
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 
