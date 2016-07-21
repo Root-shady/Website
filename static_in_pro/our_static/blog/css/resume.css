@@ -1,0 +1,253 @@
+body{
+    font-family:  Helvetica, Tahoma, Arial, STXihei, "华文细黑","Microsoft YaHei", "微软雅黑", sans-serif;
+    margin-top: 2%;
+    background: rgb(230,230,230);
+}
+/* 
+    ==================================
+    The Header, basic information
+    ==================================
+*/
+.name{
+    text-align: center;
+    font-size: 3.5em;
+    font-weight: bold;
+}
+.position{
+    text-align: center;
+}
+.weixin{
+    width: 100%;
+}
+.contact-info{
+    list-style-type: none;
+    font-weight: 1em;
+    font-size: 1.2em;
+}
+.contact-info li a{
+    text-decoration: none;
+    color: #282E33;
+}
+.contact-info li a:hover{
+    color:#428bca;
+}
+.divider{
+    border-color: #404951;
+    border-width: 3px 0;
+}
+
+/* The Time Line Section */
+.fa{
+    color: #428bca;
+    margin-right: 4%; 
+}
+.timeline, .language{
+    margin-left: 5%;
+    margin-top: 20px;
+    position: relative;
+}
+.timeline:before,
+.skill:before
+{   
+    position: absolute;
+    top: 0;
+    content: '';
+    display: block;
+    width: 0.4em;
+    height: 100%;
+    margin-left: -0.2em;  /* be used in the before */
+    /*background: rgb(80,80,80);*/
+    background: #428bca;
+    z-index: 5;
+}
+ .start-mark .lists,
+ .language .lists,
+ .skill .lists{
+    margin-left: 1.5em;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.timeline .start-mark .english,
+.language .english,
+.skill .english{
+    margin-left: 2em;
+    font-size: 1em;
+    font-weight: 400;
+    color: #428bca;
+    position: relative;
+    font-variant: small-caps;
+}
+
+.timeline .start-mark:before, 
+.language:before,
+.skill .start-mark:before{
+    position: absolute;
+    top: 0;
+    display: block;
+    font-family: 'FontAwesome';
+    font-size: 2em;
+    left: -0.7em;  /* half of the title margin + half width of the timeline */
+    content: "\f19d";
+    z-index: 10;
+    height: 40px;
+    width: 40px;
+    color: #FFFFFF;
+    background-color: #428bca;
+    border-radius: 50%;
+    text-align: center;
+}
+.timeline .end-mark:before,
+.skill .end-mark:before{
+    position: absolute;
+    display: block;
+    left: -0.7em;  /* half of the title margin + half width of the timeline */
+    content: "";
+    z-index: 10;
+    height: 20px;
+    width: 20px;
+    background-color: #428bca;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.timeline .line-content,
+.skill .line-content{
+    position: relative;
+}
+.timeline .line-content .desc{
+    font-size: 1.2em;
+}
+.timeline .line-content:before,
+.skill .line-content:before{
+    position: absolute;
+    display: block;
+    font-family: 'FontAwesome';
+    font-size: 1em;
+    top: -.4em;
+    left: -0.7em;  /* half of the title margin + half width of the timeline */
+    content: "\f19c";
+    z-index: 10;
+    height: 25px;
+    width: 25px;
+    color: #FFFFFF;
+    background-color: #428bca;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2em;
+}
+.timeline .item-divider,
+.skill .item-divider{
+    height: 0.8em;
+    width: 90%;
+    background-color: #428bca;
+    margin-top: .8em;
+    border-radius: 0.2em;
+}
+.timeline .title,
+.skill .title{
+    padding-top: 1em;
+    margin-left: 1em;
+    font-size: 1.6em;
+    font-weight: 600;
+}
+.timeline .desc,
+.skill .desc{
+    padding: 0.5em 0;
+}
+.timeline .desc ul li,
+.skill .desc ul li{
+    font-size: 1.2em;
+    position: relative;
+}
+.timeline .desc ul,
+.skill .desc ul{
+    list-style: none;
+}
+
+/* 
+    ==================================
+    language section 
+    ==================================
+*/
+.language:before{
+    content:  "\f1ab";
+}
+.language .progressbar {
+  background-color: #8AA5BD;
+  border-radius: 18px; /* (height of inner div) / 2 + padding */
+  padding: 3px;
+  margin: 1em 0;
+  width: 90%;
+  margin-left: 2em; 
+}
+
+.language .progressbar .cet4{
+   background-color: #428bca;
+   height: 30px;
+   width: 84%; /* Adjust with JavaScript */
+   border-radius: 15px;
+   text-align: center;
+   font-size: 1.2em;
+}
+.language .progressbar .cet6{
+   background-color: #428bca;
+   height: 30px;
+   width: 83%; /* Adjust with JavaScript */
+   border-radius: 15px;
+   text-align: center;
+   font-size: 1.2em;
+}
+.language ul{
+    list-style: none;
+}
+.language ul li{
+    font-size: 1.2em;
+}
+/* 
+    ================================
+    Skill section 
+    ================================
+*/
+.skill-position{
+    position: relative;
+}
+/* Use media query here */
+.skill, 
+.language{
+    margin-top: 20px;
+    margin-left: 8%;/* In small screen */
+    position: relative;
+    /*background-color: red;*/
+}
+.skill .start-mark:before{
+    content: '\f085'
+}
+.skill .line-content:before{
+    content: "\f13d"
+}
+
+
+
+/* Style for the content */
+.skill .line-content .desc ul，
+{
+    list-style-image: none;
+}
+
+
+
+@media only screen and (min-width: 762px){
+    .skill,
+    .language{
+        margin-left: 50%;
+    }
+}
+@media only screen and (max-width: 768px) and (min-width: 480px){
+    .weixin{
+        width: 50%;
+    }
+    .weixin-img{
+        text-align: center;
+    }
+}

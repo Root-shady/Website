@@ -22,10 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'j@n6d^(#p-o-m&j(q=9rqrm(*vx&e)2mi*gl1*5xg%#dvyic)f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['159.203.228.69','rootshady.com']
 
 
 # Application definition
@@ -65,10 +65,10 @@ WSGI_APPLICATION = 'myWeb.wsgi.application'
 
 DATABASES = {
     'default':{
-            'ENGINE': 'mysql.connector.django',
+            'ENGINE': 'django.db.backends.mysql',
             'NAME': 'shady_blog',
             'USER': 'shady',
-            'PASSWORD':'6566619',
+            'PASSWORD':'Virblog6566619!',
         }
 }
 

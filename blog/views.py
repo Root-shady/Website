@@ -160,6 +160,5 @@ def single_post(request, category_name_slug, post_title):
 
     
 def about(request):
-    blog = '<a href="/blog">Blog Home Page</a>'
-    return HttpResponse("This is the about section" + blog)
+	return render(request, 'blog/resume.html')
 

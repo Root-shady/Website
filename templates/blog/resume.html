@@ -1,0 +1,190 @@
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+{% block title %}
+Personal Resume
+{% endblock %}
+
+{% block custome_css %}
+	<link href="{% static 'common/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/resume.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    	<section>
+    		<div class="row">
+    			<div class="col-md-3 col-lg-3">
+    				<h1 class="name">黄东阳</h1>
+    				<h3 class="position">XX/实习</h3>
+    			</div>
+    			<div class="col-sm-8 col-md-6 col-lg-6">
+    				<ul class="contact-info">
+    					<li>
+    						<i class="fa fa-mobile fa-3x"></i> 
+    						<a href="#">(+86) 13570237823</a>
+    					</li>
+    					<li>
+    						<i class="fa fa-envelope fa-2x"></i>
+    						<a href="mailto:darkercookies@gmail.com">darkercookies@gmail.com</a>
+    					</li>
+    					<li>
+    						<i class="fa fa-github fa-2x"></i>
+    						<a href="https://github.com/Root-shady">https://github.com/Root-shady</a>
+    					</li>
+    					<li>
+    						<i class="fa fa-rss fa-2x"></i> 
+    						<a href="http://rootshady.com/">http://rootshady.com/</a>
+    					</li>
+    					<li>
+    						<i class="fa fa-stack-overflow fa-2x"></i> 
+    						<a href="http://stackoverflow.com/users/3628275/shady">http://stackoverflow.com/users/3628275/shady</a>
+    					</li>
+    				</ul>
+    			</div>
+    			<div class="col-xs-12  col-sm-4 col-md-2 col-lg-2 weixin-img">
+					<img class="weixin" src="{% static 'blog/images/weixin.png' %}">
+    			</div>			
+			  </div> <!-- End of row -->
+    	</section>
+    	<hr class="divider">
+   		
+      <section>
+        <div class="row">
+        	<div class="col-sm-6 col-md-6 col-lg-6">
+	          <div class="timeline">
+	            <div class="start-mark">
+	              <div class="lists">教育经历</div>
+	              <div class="english">Education</div>
+	            </div>
+		        <div class="line-content">
+	              <div class="item-divider"></div>
+	              <div class="title">广东工业大学</div>
+	              <div class="desc">
+	                <ul>
+	                  <li><i class="fa fa-book"></i>计算机科学与技术(本科)</li>
+	                  <li><i class="fa fa-calendar"></i>2012.9 ~ 2016.6</li>
+                	</ul>
+              	  </div>
+            	</div> <!-- End og the line content -->
+	            <div class="end-mark"></div>
+	          </div> <!-- End of time line -->
+         	  	<br>
+
+		        <!-- The Project Section -->
+		        <div class="timeline">
+		        	<div class="start-mark">
+		                <div class="lists">技能</div>
+		                <div class="english">Skills</div>
+		            </div>
+
+		            <div class="line-content">
+		                <div class="item-divider"></div>
+		                <div class="title">Web前端</div>
+		                <div class="desc">
+		                  <ul>
+		                    <li><i class="fa fa-star"></i>熟悉HTML/CSS,能编写语义化的HTML和模块化的CSS,完成基本的自适应、响应式设计</li>
+		                    <li><i class="fa fa-star"></i>熟悉 过渡/变换/媒体查询/关键帧动画等CSS3特性</li>
+		                    <li><i class="fa fa-star"></i>能够使用Bootstrap框架搭建自适应Web页面</li>
+		                    <li><i class="fa fa-star"></i>了解主流的浏览器兼容性问题及解决方法</li>
+		                    <li><i class="fa fa-star-half-o"></i>了解jQuery, 能够使用jQuery实现简单页面交互</li>
+		                    <!--li><i class="fa fa-star-half-o"></i>了解 less, sass等CSS动态样式语言</li-->
+		                  </ul>
+		                </div>
+		            </div> <!-- End of line content -->
+
+		            <div class="line-content">
+		                <div class="item-divider"></div>
+		                <div class="title">Web后端</div>
+		                <div class="desc">
+		                  <ul>
+		                    <li><i class="fa fa-star"></i>掌握Python编程，熟练使用Python标准库和流行的第三方库, 基本TDD思想</li>
+		                    <li><i class="fa fa-star"></i>熟悉MVC架构，基本能使用Django Web开发框架</li>                  
+		                    <li><i class="fa fa fa-star"></i>熟悉数据库原理及设计，MySQL的配置使用及基本SQL语句</li>
+		                    <li><i class="fa fa fa-star"></i>熟悉常用的Linux命令行,了解基本Shell编程,掌握Web服务器如Nginx的配置</li>
+		                    <li><i class="fa fa fa-star"></i>了解TCP/IP协议及HTTP协议</li>
+		                  </ul>
+		                </div>
+		            </div>
+
+		            <div class="line-content">
+		                <div class="item-divider"></div>
+		                <div class="title">其它</div>
+		                <div class="desc">
+		                  <ul>
+		                    <li><i class="fa fa fa-fire"></i>熟悉Sublime Text/Vim等编辑器及插件使用,使用Markdown进行写作</li>
+		                    <li><i class="fa fa fa-fire"></i>能够使用Git版本管理工具进行协作开发</li>
+		                    <li><i class="fa fa fa-fire"></i>兴趣爱好：打桌球、登山、看科幻电影、逛知乎、MOOC、TED</li>
+		                    <li><i class="fa fa fa-fire"></i>善于学习,乐于分享,能承受较大工作压力,具备团队合作,沟通协作能力</li>
+		                  </ul>
+		                </div>
+		            </div>
+
+		            <div class="end-mark"></div>
+
+			    </div>
+			    <!-- End of the Skill section -->
+
+      		</div><!-- End of the col-sm-6-->
+
+	      	<div clas="col-sm-6 col-md-6 col-lg-6">
+	      	  <div class="skill-position">
+
+		        <div class="language">
+		          <div class="lists">语言水平</div>
+		          <div class="english">Language</div>
+		          <div class="progressbar">
+		              <div class="cet4">CET4: 596</div>
+		          </div>
+		          <div class="progressbar">
+		              <div class="cet6">CET6: 590</div>
+		          </div>
+		          <ul>
+		              <li><i class="fa fa-tag"></i>使用VPS搭建shadowsocks服务，实现科学上网，使用Google检索, 查阅资料。 能在stackoverflow,github issue进行英文交流</li>
+		              <li><i class="fa fa-tag"></i>可阅读英文专业书籍、开发文档、手册、技术博客及学习Youtube上教学视频</li>
+		          </ul>
+		        </div><!-- End of the language section -->
+
+		        <!-- The skill section -->
+		        <div class="skill">
+		            <div class="start-mark">
+		              <div class="lists">开发经验</div>
+		              <div class="english">Experience</div>
+	            	</div>
+			        <div class="line-content">
+		              <div class="item-divider"></div>
+		              <div class="title">响应式网站开发</div>
+		              <div class="desc">
+		                <ul>
+		                  <li><i class="fa fa-book"></i>帮助同学的创业工作室设计并实现了工作室的网站 , 前端使用了Bootstrap框架，后端采用了Djangoweb框架MySQL+Nginx实现，部署在阿里云服务器上，可以通过进行访问,这过程中学习了Web开发的基本流程,掌握了Bootstrap的使用，懂得了如何管理VPS和部署基本Web应用。</li>
+	                	</ul>
+	              	  </div>
+	            	</div> <!-- End of the line content -->
+
+	            	<div class="line-content">
+		              <div class="item-divider"></div>
+		              <div class="title">影院购票系统开发</div>
+		              <div class="desc">
+		                <ul>
+		                  <li><i class="fa fa-book"></i>设计并实现了影院购票系统，完成了基本的数据库设计和客户端的实现，客户端采用C++图形用户界面应用程序开发框架Qt进行设计实现, 数据库使用MySQL作为后端数据库,熟悉了SQL语句和数据库的原理和设计</li>
+	                	</ul>
+	              	  </div>
+	            	</div> <!-- End of the line content -->
+
+	            	<div class="line-content">
+		              <div class="item-divider"></div>
+		              <div class="title">搭建维护个人博客</div>
+		              <div class="desc">
+		                <ul>
+		                  <li><i class="fa fa-book"></i>博客地址: http://rootshady.com/采用Bootstrap + Django + MySQL技术实现，博客用于记录平常的学习心得。设计过程熟悉了Web开发的MVC模型，以及如何使用Django框架提供的ORM，熟悉了Python库的使用。</li>
+	                	</ul>
+	              	  </div>
+		            </div> <!-- End of skill line -->   
+		        </div>
+
+			</div><!-- End of the col-sm-6 -->
+    	
+        </div> <!-- End of the row-->
+      </section>
+    </div><!-- End of container -->
+
+{% endblock %}
